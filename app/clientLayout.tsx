@@ -50,7 +50,11 @@ export default function ClientLayout({
                 {navigation.map((item) => (
                   <li key={item.name}>
                     <NavLink
-                      href={item.enabled ? `/${item.name.toLowerCase()}` : "#"}
+                      href={
+                        item.enabled && item.href
+                          ? `${item.href.toLowerCase()}`
+                          : "#"
+                      }
                     >
                       <div className="flex items-center gap-3">
                         <Image

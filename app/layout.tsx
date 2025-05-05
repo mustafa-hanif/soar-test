@@ -1,8 +1,6 @@
-import { connection } from "next/server";
-
 import type { Metadata } from "next";
 import ClientLayout from "./clientLayout";
-import { api } from "@/api";
+import navigationData from "@/api/mockData/navigation.json";
 
 export const metadata: Metadata = {
   title: "Soar Finance Dashboard",
@@ -14,8 +12,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await connection();
-  const navigation = await api.navigation();
+  const navigation = navigationData;
 
-  return <ClientLayout navigation={navigation.body}>{children}</ClientLayout>;
+  return <ClientLayout navigation={navigation}>{children}</ClientLayout>;
 }

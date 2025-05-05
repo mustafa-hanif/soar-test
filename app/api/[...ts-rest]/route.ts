@@ -1,6 +1,6 @@
 import { main } from "@/api/contracts";
 import { createNextHandler } from "@ts-rest/serverless/next";
-import navigationData from "./mockData/navigation.json";
+import navigationData from "@/api/mockData/navigation.json";
 
 const handler = createNextHandler(
   main,
