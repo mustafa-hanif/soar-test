@@ -38,7 +38,7 @@ export default function ClientLayout({
             className={`bg-white w-64 border-r border-gray-200 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 
                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative`}
           >
-            <div className="flex items-center p-4">
+            <div className="flex items-center p-6 py-[30px]">
               <Image
                 src="/icons/icon.png"
                 alt="Soar Task"
@@ -48,10 +48,10 @@ export default function ClientLayout({
               />
               <h2 className="text-xl font-bold">Soar Task</h2>
             </div>
-            <nav className="p-4">
+            <nav className="m-0">
               <ul className="space-y-6">
                 {navigation.map((item) => (
-                  <li key={item.name}>
+                  <li className="mb-0" key={item.name}>
                     <NavLink
                       href={
                         item.enabled && item.href
@@ -78,9 +78,9 @@ export default function ClientLayout({
           {/* Main content area */}
           <div className="flex flex-col flex-1 overflow-hidden">
             {/* Header */}
-            <header className="bg-white shadow">
+            <header className="bg-white shadow z-10">
               <div className="flex items-center justify-between p-4">
-                <div className="flex items-center">
+                <div className="flex items-center w-full">
                   <button
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     className="p-1 mr-4 rounded-md hover:bg-gray-200 md:hidden"
@@ -95,7 +95,7 @@ export default function ClientLayout({
                   <PageName />
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-3 bg-blue-50 p-2 rounded-2xl">
+                  <div className="hidden md:flex items-center gap-3 bg-blue-50 p-2 rounded-2xl">
                     <Image
                       src="/icons/search_icon.png"
                       alt="search"
@@ -104,7 +104,7 @@ export default function ClientLayout({
                     />
                     <input type="text" />
                   </div>
-                  <div>
+                  <div className="hidden md:flex">
                     <Image
                       src="/icons/settings.png"
                       alt="notification"
@@ -112,7 +112,7 @@ export default function ClientLayout({
                       height={50}
                     />
                   </div>
-                  <div>
+                  <div className="hidden md:flex">
                     <Image
                       src="/icons/notification.png"
                       alt="notification"

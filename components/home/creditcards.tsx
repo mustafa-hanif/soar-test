@@ -7,7 +7,7 @@ export const CreditCards = async () => {
   return (
     <div className="flex flex-col gap-3">
       <h2 className="text-2xl font-bold text-slate-600">My Cards</h2>
-      <div className="flex gap-3 overflow-x-auto h-[235px] font-special">
+      <div className="flex gap-3 overflow-x-auto h-[237px] font-special">
         {cards.map((card: ICreditCard) => (
           <CreditCard key={card.cardNumber} card={card} />
         ))}

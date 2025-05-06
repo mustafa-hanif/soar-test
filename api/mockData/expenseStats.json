@@ -1,18 +1,18 @@
 [
   {
     "type": "Entertainment",
-    "percent": "30"
+    "percent": 30
   },
   {
-    "type": "Investment",
-    "percent": "20"
+    "type": "Property",
+    "percent": 20
+  },
+  {
+    "type": "Other",
+    "percent": 15
   },
   {
     "type": "Bill expense",
-    "percent": "15"
-  },
-  {
-    "type": "Others",
-    "percent": "35"
+    "percent": 35
   }
 ]

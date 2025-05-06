@@ -1,5 +1,6 @@
 "use client";
 
+import { IWeeklyActivity } from "@/api/types";
 import { useClient } from "@/hooks/useClient";
 import {
   Bar,
@@ -12,56 +13,46 @@ import {
   YAxis,
 } from "recharts";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-  },
-];
-
-export const WeeklyChart = () => {
+export const WeeklyChart = ({
+  weeklyActivity,
+}: {
+  weeklyActivity: IWeeklyActivity[];
+}) => {
   const clientOnly = useClient();
   return clientOnly ? (
     <ResponsiveContainer>
-      <BarChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+      <BarChart
+        margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+        barGap={10}
+        data={weeklyActivity}
+      >
+        <CartesianGrid vertical={false} strokeDasharray="1" />
+        <XAxis
+          axisLine={false}
+          tickLine={false}
+          tick={{ fill: "#718EBF" }}
+          dataKey="day"
+        />
+        <YAxis axisLine={false} tickLine={false} />
         <Tooltip />
-        <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Legend
+          align="right"
+          verticalAlign="top"
+          iconType="circle"
+          wrapperStyle={{ paddingBottom: 10 }}
+        />
+        <Bar
+          barSize={15}
+          radius={[10, 10, 0, 0]}
+          dataKey="deposit"
+          fill="#232323"
+        />
+        <Bar
+          barSize={12}
+          radius={[10, 10, 0, 0]}
+          dataKey="withdraw"
+          fill="#396AFF"
+        />
       </BarChart>
     </ResponsiveContainer>
   ) : null;

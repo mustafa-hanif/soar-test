@@ -44,7 +44,7 @@ function FieldInfo({ field }: { field: IField }) {
   return (
     <>
       {field.state.meta.isTouched && !field.state.meta.isValid ? (
-        <p className="text-red-400 text-sm mt-[-18px]">{errors?.message}</p>
+        <p className="text-red-400 text-sm mt-[-12px]">{errors?.message}</p>
       ) : null}
       {field.state.meta.isValidating ? "Validating..." : null}
     </>
@@ -52,23 +52,19 @@ function FieldInfo({ field }: { field: IField }) {
 }
 
 const schema = z.object({
-  name: z
-    .string({ required_error: "Name is required" })
-    .min(3, "Your Name must be at least 3 characters"),
-  userName: z
-    .string({ required_error: "User Name is required" })
-    .min(3, "User Name must be at least 3 characters"),
+  name: z.string().min(3, "Your Name must be at least 3 characters"),
+  userName: z.string().min(3, "User Name must be at least 3 characters"),
   email: z
     .string({ required_error: "Email is required" })
     .email("Invalid email"),
   password: z
     .string({ required_error: "Password is required" })
     .min(6, "Password must be at least 6 characters"),
-  dateOfBirth: z.string({ required_error: "Date of Birth is required" }),
-  presentAddress: z.string({ required_error: "Present Address is required" }),
-  permanentAddress: z.string({
-    required_error: "Permanent Address is required",
-  }),
+  dateOfBirth: z
+    .date()
+    .max(new Date(), { message: "Date of birth is invalid" }),
+  presentAddress: z.string().min(3, "Present Address is required"),
+  permanentAddress: z.string().min(3, "Permanent Address is required"),
   city: z.string({ required_error: "City is required" }),
   postalCode: z.string({ required_error: "Postal Code is required" }),
   country: z.string({ required_error: "Country is required" }),
@@ -104,7 +100,11 @@ const TextInput = ({
         name={field.name}
         value={field.state.value}
         onBlur={field.handleBlur}
-        onChange={(e) => field.handleChange(e.target.value)}
+        onChange={(e) =>
+          field.handleChange(
+            type === "date" ? new Date(e.target.value) : e.target.value
+          )
+        }
       />
       <FieldInfo field={field} />
     </div>
@@ -118,7 +118,7 @@ export default function Settings() {
       userName: "",
       email: "",
       password: "",
-      dateOfBirth: "",
+      dateOfBirth: new Date(),
       presentAddress: "",
       permanentAddress: "",
       city: "",
@@ -130,7 +130,7 @@ export default function Settings() {
     },
     onSubmit: async ({ value }) => {
       // Do something with form data
-      alert(value);
+      alert(JSON.stringify(value, null, 2));
     },
   });
   const errors = form.state.errors;
@@ -281,12 +281,12 @@ export default function Settings() {
               <form.Subscribe
                 selector={(state) => [state.canSubmit, state.isSubmitting]}
               >
-                {([isSubmitting]) => (
+                {() => (
                   <button
                     className="bg-black block w-full md:w-[160px] text-white px-12 text-sm py-2.5 rounded-xl transition-all hover:scale-110 active:scale-90"
                     type="submit"
                   >
-                    {isSubmitting ? "Saving..." : "Save"}
+                    Save
                   </button>
                 )}
               </form.Subscribe>

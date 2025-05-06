@@ -7,7 +7,7 @@ export const BalanceHistory = async () => {
     <div className="flex flex-col gap-3">
       <h2 className="text-2xl font-bold text-slate-600">Balance History</h2>
       <div className="flex flex-col gap-3 bg-white rounded-xl p-6 h-[276px]">
-        <BalanceChart />
+        <BalanceChart balanceHistory={balanceHistory} />
       </div>
     </div>
   );

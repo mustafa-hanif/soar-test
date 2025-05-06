@@ -9,5 +9,5 @@ const pageNameMap: { [key: string]: string } = {
 export const PageName = () => {
   const segment = useSelectedLayoutSegment() as string;
   const pageName = pageNameMap[segment ?? ""];
-  return <h1 className="text-3xl font-semibold">{pageName}</h1>;
+  return <h1 className="text-3xl md:ml-1 mx-auto font-semibold">{pageName}</h1>;
 };

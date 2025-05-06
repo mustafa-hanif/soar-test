@@ -25,12 +25,13 @@ export const RecentTransaction = z.object({
 
 export const WeeklyActivity = z.object({
   day: z.string(),
-  amount: z.number(),
+  deposit: z.string(),
+  withdraw: z.string(),
 });
 
 export const ExpenseStats = z.object({
   type: z.string(),
-  percent: z.string(),
+  percent: z.number(),
 });
 
 export const FrequentTransfer = z.object({
@@ -40,7 +41,6 @@ export const FrequentTransfer = z.object({
 });
 
 export const BalanceHistory = z.object({
-  date: z.string(),
+  month: z.string(),
   balance: z.number(),
-  icon: z.string(),
 });
