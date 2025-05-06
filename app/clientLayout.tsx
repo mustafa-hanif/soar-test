@@ -1,20 +1,22 @@
 "use client";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Lato } from "next/font/google";
 import "./globals.css";
 import { useSidebar } from "@/hooks/useSidebar";
 import NavLink from "@/components/global/activelink";
 import { INavItem } from "@/api/types";
 import Image from "next/image";
+import { PageName } from "@/components/global/pagename";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const interSans = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const latoSans = Lato({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-lato",
 });
 
 export default function ClientLayout({
@@ -29,21 +31,22 @@ export default function ClientLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${interSans.variable} ${latoSans.variable} font-sans antialiased`}
       >
         <div className="flex h-screen bg-gray-100">
           <aside
-            className={`bg-gray-800 text-white w-64 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 
+            className={`bg-white w-64 border-r border-gray-200 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 
                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative`}
           >
-            <div className="flex items-center justify-between p-4 border-b border-gray-700">
-              <h2 className="text-xl font-bold">Dashboard</h2>
-              <button
-                onClick={() => setIsSidebarOpen(false)}
-                className="p-1 rounded-md hover:bg-gray-700 md:hidden"
-              >
-                X
-              </button>
+            <div className="flex items-center p-4">
+              <Image
+                src="/icons/icon.png"
+                alt="Soar Task"
+                width={25}
+                height={28}
+                className="mr-4"
+              />
+              <h2 className="text-xl font-bold">Soar Task</h2>
             </div>
             <nav className="p-4">
               <ul className="space-y-6">
@@ -82,14 +85,47 @@ export default function ClientLayout({
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     className="p-1 mr-4 rounded-md hover:bg-gray-200 md:hidden"
                   >
-                    Menu
+                    <Image
+                      src="/icons/hamburger.png"
+                      alt="menu"
+                      width={25}
+                      height={25}
+                    />
                   </button>
-                  <h1 className="text-xl font-semibold">My Dashboard</h1>
+                  <PageName />
                 </div>
-                <div>
-                  <button className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                    Profile
-                  </button>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 bg-blue-50 p-2 rounded-2xl">
+                    <Image
+                      src="/icons/search_icon.png"
+                      alt="search"
+                      width={20}
+                      height={20}
+                    />
+                    <input type="text" />
+                  </div>
+                  <div>
+                    <Image
+                      src="/icons/settings.png"
+                      alt="notification"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/icons/notification.png"
+                      alt="notification"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <Image
+                    src="/users/user.png"
+                    alt="user"
+                    width={60}
+                    height={60}
+                  />
                 </div>
               </div>
             </header>
@@ -100,7 +136,7 @@ export default function ClientLayout({
           {/* Overlay to close sidebar on mobile */}
           {isMobile && isSidebarOpen && (
             <div
-              className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
+              className="fixed inset-0 bg-black opacity-25 z-10 md:hidden"
               onClick={() => setIsSidebarOpen(false)}
             />
           )}

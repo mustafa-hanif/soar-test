@@ -1,0 +1,30 @@
+[
+  {
+    "month": "Jul",
+    "balance": 160
+  },
+  {
+    "month": "Aug",
+    "balance": 380
+  },
+  {
+    "month": "Sep",
+    "balance": 470
+  },
+  {
+    "month": "Oct",
+    "balance": 890
+  },
+  {
+    "month": "Nov",
+    "balance": 600
+  },
+  {
+    "month": "Dec",
+    "balance": 310
+  },
+  {
+    "month": "Jan",
+    "balance": 220
+  }
+]

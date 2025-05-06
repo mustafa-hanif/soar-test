@@ -6,3 +6,41 @@ export const NavItem = z.object({
   href: z.string().optional(),
   enabled: z.boolean().optional(),
 });
+
+export const CreditCard = z.object({
+  balance: z.number(),
+  cardHolder: z.string(),
+  valid: z.string(),
+  cardNumber: z.string(),
+  type: z.string(),
+  color: z.string(),
+});
+
+export const RecentTransaction = z.object({
+  title: z.string(),
+  date: z.string(),
+  amount: z.number(),
+  icon: z.string(),
+});
+
+export const WeeklyActivity = z.object({
+  day: z.string(),
+  amount: z.number(),
+});
+
+export const ExpenseStats = z.object({
+  type: z.string(),
+  percent: z.string(),
+});
+
+export const FrequentTransfer = z.object({
+  name: z.string(),
+  position: z.string(),
+  imageUrl: z.string(),
+});
+
+export const BalanceHistory = z.object({
+  date: z.string(),
+  balance: z.number(),
+  icon: z.string(),
+});

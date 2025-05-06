@@ -20,8 +20,8 @@ export default function NavLink({
     <Link
       href={href}
       className={clsx(
-        isActive && "font-semibold",
-        "flex items-center gap-3 p-2 rounded-md hover:bg-gray-700"
+        isActive && "text-slate-950 border-s-4 border-slate-950 ",
+        "flex text-slate-700 items-center gap-3 p-2 rounded-md hover:text-slate-950"
       )}
     >
       {children}
