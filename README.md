@@ -23,6 +23,10 @@
 - run `npm run dev`
 - make sure the port that is running in localhost is the same as described in `.env` most likely it will be 3000
 
+#### API Data
+
+- The mock data is in the `/data/mockData` folder, change anything to see it change on the site
+
 ### Description
 
 This project used NextJS and React Server Components (RSC) to fetch actual data from an API endpoint, the api endpoint is described in the `app/api` folder, all the data is coming from `/api/mockData` folder.
