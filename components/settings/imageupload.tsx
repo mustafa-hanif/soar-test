@@ -46,10 +46,12 @@ export default function ImageUpload() {
           <button
             onClick={handleButtonClick}
             type="button"
-            className="text-white block w-[50px] h-[50px] shrink-0 absolute right-[25px] top-[25px] p-2 rounded-xl transition-all hover:scale-110 active:scale-90"
+            aria-label="Change profile picture"
+            className="text-white block w-[50px] h-[50px] shrink-0 absolute right-[25px] top-[25px] p-2 rounded-xl transition-all hover:scale-110 active:scale-90 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <Image
-              alt="edit"
+              alt=""
+              aria-hidden="true"
               src="/icons/edit_icon.png"
               width={30}
               height={30}

@@ -38,20 +38,23 @@ export default function ClientLayout({
       >
         <div className="flex h-screen bg-gray-100">
           <aside
+            id="sidebar"
+            aria-label="Main Navigation"
             className={`bg-white w-64 border-r border-gray-200 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 
                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative`}
           >
             <div className="flex items-center p-6 py-[30px]">
               <Image
                 src="/icons/icon.png"
-                alt="Soar Task"
+                alt=""
                 width={25}
                 height={28}
                 className="mr-4"
+                aria-hidden="true"
               />
               <h2 className="text-xl font-bold">Soar Task</h2>
             </div>
-            <nav className="m-0">
+            <nav aria-label="Main Menu" className="m-0">
               <ul className="space-y-6">
                 {navigation.map((item) => (
                   <li className="mb-0" key={item.name}>
@@ -61,13 +64,15 @@ export default function ClientLayout({
                           ? `${item.href.toLowerCase()}`
                           : "#"
                       }
+                      aria-disabled={!item.enabled}
                     >
                       <div className="flex items-center gap-3">
                         <Image
                           width={25}
                           height={25}
                           src={`/icons/${item.icon}`}
-                          alt={item.name}
+                          alt=""
+                          aria-hidden="true"
                           className="w-6 h-6"
                         />
                         <span>{item.name}</span>
@@ -86,11 +91,15 @@ export default function ClientLayout({
                 <div className="flex items-center w-full md:w-auto">
                   <button
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                    className="p-1 mr-4 rounded-md hover:bg-gray-200 md:hidden"
+                    className="p-1 mr-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
+                    aria-expanded={isSidebarOpen}
+                    aria-controls="sidebar"
+                    aria-label="Toggle navigation menu"
                   >
                     <Image
                       src="/icons/hamburger.png"
-                      alt="menu"
+                      alt=""
+                      aria-hidden="true"
                       width={25}
                       height={25}
                     />
@@ -99,34 +108,52 @@ export default function ClientLayout({
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="hidden md:flex items-center gap-3 bg-blue-50 p-2 rounded-2xl">
+                    <label htmlFor="search-input" className="sr-only">
+                      Search
+                    </label>
                     <Image
                       src="/icons/search_icon.png"
-                      alt="search"
+                      alt=""
+                      aria-hidden="true"
                       width={20}
                       height={20}
                     />
-                    <input type="text" />
+                    <input
+                      id="search-input"
+                      type="text"
+                      placeholder="Search"
+                      aria-label="Search"
+                      className="bg-transparent border-none outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-2"
+                    />
                   </div>
-                  <div className="hidden md:flex md:shrink-0">
+                  <button
+                    aria-label="Settings"
+                    className="hidden md:flex md:shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+                  >
                     <Image
                       src="/icons/settings.png"
-                      alt="notification"
+                      alt=""
+                      aria-hidden="true"
                       width={50}
                       height={50}
                     />
-                  </div>
-                  <div className="hidden md:flex md:shrink-0">
+                  </button>
+                  <button
+                    aria-label="Notifications"
+                    className="hidden md:flex md:shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+                  >
                     <Image
                       src="/icons/notification.png"
-                      alt="notification"
+                      alt=""
+                      aria-hidden="true"
                       width={50}
                       height={50}
                     />
-                  </div>
+                  </button>
                   <div className="shrink-0">
                     <Image
                       src="/users/user.png"
-                      alt="user"
+                      alt="User profile"
                       width={60}
                       height={60}
                     />

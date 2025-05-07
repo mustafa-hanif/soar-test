@@ -12,20 +12,34 @@ export const FrequestTransferClient = ({
   const [selectedTransfer, setSelectedTransfer] = useState<IFrequentTransfer>();
   return (
     <div className="flex flex-col gap-3">
-      <h2 className="text-2xl font-bold text-slate-600">Quick Transfer</h2>
-      <div className="flex flex-col justify-center h-[276px] gap-3 bg-white rounded-xl p-6">
+      <h2
+        className="text-2xl font-bold text-slate-600"
+        id="quick-transfer-heading"
+      >
+        Quick Transfer
+      </h2>
+      <div
+        className="flex flex-col justify-center h-[276px] gap-3 bg-white rounded-xl p-6"
+        aria-labelledby="quick-transfer-heading"
+      >
         <div className="flex mb-4 justify-between">
-          <div className="flex overflow-x-auto gap-2 grow w-full">
+          <div
+            className="flex overflow-x-auto gap-2 grow w-full"
+            role="listbox"
+            aria-label="Select transfer recipient"
+          >
             {frequentTransfer.map((transfer: IFrequentTransfer) => (
               <button
                 onClick={() => setSelectedTransfer(transfer)}
                 key={transfer.name}
-                className="flex justify-between"
+                className="flex justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2"
+                role="option"
+                aria-selected={selectedTransfer?.name === transfer.name}
               >
                 <div className="flex min-w-[90px] shrink-0 flex-col items-center gap-3">
                   <Image
                     src={`/users/${transfer.imageUrl}`}
-                    alt="card"
+                    alt={`${transfer.name}'s profile picture`}
                     width={55}
                     height={55}
                   />
@@ -42,7 +56,7 @@ export const FrequestTransferClient = ({
                       className={clsx(
                         selectedTransfer?.name === transfer.name &&
                           "font-semibold",
-                        "text-gray-400"
+                        "text-gray-700"
                       )}
                     >
                       {transfer.position}
@@ -65,22 +79,30 @@ export const FrequestTransferClient = ({
         </div>
 
         <div className="flex justify-between items-center">
-          <div className=" text-gray-400">Write Amount</div>
+          <label htmlFor="transfer-amount" className="text-gray-700">
+            Write Amount
+          </label>
 
           <div className="flex relative">
             <div className="ml-auto w-full bg-[#EDF1F7] p-4 rounded-4xl">
               <input
-                className="outline-none"
+                id="transfer-amount"
+                className="outline-none focus:ring-2 focus:ring-blue-500 rounded px-2"
                 placeholder="525.50"
                 type="text"
+                inputMode="decimal"
+                aria-label="Transfer amount"
               />
             </div>
             <div className="absolute right-[-20px] w-[125px]">
-              {/* animated hover and click */}
-              <button className="bg-black text-white p-4 rounded-4xl flex gap-2 hover:scale-110 transition-all active:scale-90">
+              <button
+                className="bg-black text-white p-4 rounded-4xl flex gap-2 hover:scale-110 transition-all active:scale-90 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-label="Send money transfer"
+              >
                 <div>Send</div>
                 <Image
-                  alt="send"
+                  alt=""
+                  aria-hidden="true"
                   src="/icons/send.png"
                   width={26}
                   height={22}

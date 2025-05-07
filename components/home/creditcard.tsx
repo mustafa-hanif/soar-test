@@ -11,6 +11,8 @@ export const CreditCard = ({ card }: { card: ICreditCard }) => {
           ? "bg-linear-to-l from-black to-[#5B5A6F] text-white"
           : "bg-white text-gray-800"
       )}
+      role="region"
+      aria-label={`${card.type} card ending in ${card.cardNumber.slice(-4)}`}
     >
       <div className="flex justify-between px-6 mb-4">
         <div>
@@ -37,7 +39,8 @@ export const CreditCard = ({ card }: { card: ICreditCard }) => {
                 ? "/icons/chip_card.png"
                 : "/icons/chip_card_black.png"
             }
-            alt="chip"
+            alt=""
+            aria-hidden="true"
             width={32}
             height={32}
           />
@@ -84,7 +87,7 @@ export const CreditCard = ({ card }: { card: ICreditCard }) => {
                 ? "/icons/master_card.png"
                 : "/icons/master_card_light.png"
             }
-            alt="mastercard"
+            alt={`${card.type} logo`}
             width={44}
             height={30}
           />

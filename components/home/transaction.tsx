@@ -13,14 +13,15 @@ export const Transaction = ({
         <div className="h-[55px] w-[55px] shrink-0">
           <Image
             src={`/icons/${transaction.icon}`}
-            alt="card"
+            alt=""
+            aria-hidden="true"
             width={55}
             height={55}
           />
         </div>
         <div>
           <h3 className="font-semibold mb-0">{transaction.title}</h3>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-600 text-sm">
             {format(transaction.date, "d MMMM yyyy")}
           </p>
         </div>
