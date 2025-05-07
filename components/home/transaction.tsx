@@ -9,7 +9,7 @@ export const Transaction = ({
 }) => {
   return (
     <div className="flex justify-between items-center h-full">
-      <div className="flex gap-3 mb-1">
+      <div className="flex gap-3 mb-3">
         <div className="h-[55px] w-[55px] shrink-0">
           <Image
             src={`/icons/${transaction.icon}`}
