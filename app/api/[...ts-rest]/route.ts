@@ -1,12 +1,12 @@
 import { main } from "@/api/contracts";
 import { createNextHandler } from "@ts-rest/serverless/next";
-import navigationData from "@/api/mockData/navigation.json";
-import balanceData from "@/api/mockData/balanceHistory.json";
-import cards from "@/api/mockData/cards.json";
-import weeklyActivity from "@/api/mockData/weeklyActivity.json";
-import transactionsData from "@/api/mockData/recentTransactions.json";
-import expenseStats from "@/api/mockData/expenseStats.json";
-import frequentData from "@/api/mockData/frequentTransfer.json";
+import navigationData from "@/api/mockData/navigation";
+import balanceData from "@/api/mockData/balanceHistory";
+import cards from "@/api/mockData/cards";
+import weeklyActivity from "@/api/mockData/weeklyActivity";
+import transactionsData from "@/api/mockData/recentTransactions";
+import expenseStats from "@/api/mockData/expenseStats";
+import frequentData from "@/api/mockData/frequentTransfer";
 
 export const dynamic = "force-dynamic";
 

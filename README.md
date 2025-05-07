@@ -32,3 +32,7 @@ I am using `ts-rest` to have end to end type-safety from the API response right 
 Design is fully responsive
 
 In the settings page, I am using Tanstack Form to define zod form validations, and error handling.
+
+Whole app is performant which JS payload just around 100kb, while most of the rendering is server-side
+
+Whole app is accessiblity optimized, with ARIA labels, keyboard navigations and text data where charts are not available
