@@ -63,11 +63,17 @@ const schema = z.object({
   dateOfBirth: z
     .date()
     .max(new Date(), { message: "Date of birth is invalid" }),
-  presentAddress: z.string().min(3, "Present Address is required"),
-  permanentAddress: z.string().min(3, "Permanent Address is required"),
-  city: z.string({ required_error: "City is required" }),
-  postalCode: z.string({ required_error: "Postal Code is required" }),
-  country: z.string({ required_error: "Country is required" }),
+  presentAddress: z.string().min(2, "Present Address is required"),
+  permanentAddress: z.string().min(2, "Permanent Address is required"),
+  city: z
+    .string({ required_error: "City is required" })
+    .min(2, "City is required"),
+  postalCode: z
+    .string({ required_error: "Postal Code is required" })
+    .min(2, "Postal Code is required"),
+  country: z
+    .string({ required_error: "Country is required" })
+    .min(2, "Country is required"),
 });
 
 const TextInput = ({
@@ -98,7 +104,11 @@ const TextInput = ({
         id={field.name}
         type={type ?? "text"}
         name={field.name}
-        value={field.state.value}
+        value={
+          type === "date" && field.state.value instanceof Date
+            ? field.state.value.toISOString().split("T")[0]
+            : field.state.value
+        }
         onBlur={field.handleBlur}
         onChange={(e) =>
           field.handleChange(
@@ -138,11 +148,11 @@ export default function Settings() {
     <div className="bg-white rounded-2xl shadow-slate-200 shadow-xl p-6">
       {/* Tab Selector */}
       <div className="flex gap-3 mb-8 border-b border-gray-100">
-        <div className="border-b-2 border-black pb-2 px-4 text-slate-800">
+        <div className="border-b-2 border-black pb-2 px-3 text-slate-800">
           Edit Profile
         </div>
-        <div className="pb-2 px-4 text-slate-500">Preferences</div>
-        <div className="pb-2 px-4 text-slate-500">Security</div>
+        <div className="pb-2 px-3 text-slate-500">Preferences</div>
+        <div className="pb-2 px-3 text-slate-500">Security</div>
       </div>
 
       <div>

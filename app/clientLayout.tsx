@@ -30,6 +30,9 @@ export default function ClientLayout({
 
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={`${interSans.variable} ${latoSans.variable} font-sans antialiased`}
       >
@@ -78,9 +81,9 @@ export default function ClientLayout({
           {/* Main content area */}
           <div className="flex flex-col flex-1 overflow-hidden">
             {/* Header */}
-            <header className="bg-white shadow z-10">
+            <header className="bg-white shadow z-10 max-w-full">
               <div className="flex items-center justify-between p-4">
-                <div className="flex items-center w-full">
+                <div className="flex items-center w-full md:w-auto">
                   <button
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     className="p-1 mr-4 rounded-md hover:bg-gray-200 md:hidden"
@@ -104,7 +107,7 @@ export default function ClientLayout({
                     />
                     <input type="text" />
                   </div>
-                  <div className="hidden md:flex">
+                  <div className="hidden md:flex md:shrink-0">
                     <Image
                       src="/icons/settings.png"
                       alt="notification"
@@ -112,7 +115,7 @@ export default function ClientLayout({
                       height={50}
                     />
                   </div>
-                  <div className="hidden md:flex">
+                  <div className="hidden md:flex md:shrink-0">
                     <Image
                       src="/icons/notification.png"
                       alt="notification"
@@ -120,12 +123,14 @@ export default function ClientLayout({
                       height={50}
                     />
                   </div>
-                  <Image
-                    src="/users/user.png"
-                    alt="user"
-                    width={60}
-                    height={60}
-                  />
+                  <div className="shrink-0">
+                    <Image
+                      src="/users/user.png"
+                      alt="user"
+                      width={60}
+                      height={60}
+                    />
+                  </div>
                 </div>
               </div>
             </header>

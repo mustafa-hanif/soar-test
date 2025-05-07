@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Soar Test Dashboard
 
-## Getting Started
+## None of the code is written by AI. Everything is handcrafted by me
 
-First, run the development server:
+### Demo URL: https://soar-test-pearl.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Tech stack used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- NextJS 15
+- TailwindCSS
+- Tanstack Form
+- ts-rest for type-safe API calls
+- Recharts (for charts)
+- zod for validation schema
+- Bun package manager
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### How to run locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Checkout the project
+- Install bun.sh or nodeJS
+- run `npm install`
+- run `cp env.sample .env`
+- run `npm run dev`
+- make sure the port that is running in localhost is the same as described in `.env` most likely it will be 3000
 
-## Learn More
+### Description
 
-To learn more about Next.js, take a look at the following resources:
+This project used NextJS and React Server Components (RSC) to fetch actual data from an API endpoint, the api endpoint is described in the `app/api` folder, all the data is coming from `/api/mockData` folder.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I am using `ts-rest` to have end to end type-safety from the API response right down to the components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Design is fully responsive
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In the settings page, I am using Tanstack Form to define zod form validations, and error handling.

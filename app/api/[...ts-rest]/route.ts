@@ -1,6 +1,12 @@
 import { main } from "@/api/contracts";
 import { createNextHandler } from "@ts-rest/serverless/next";
 import navigationData from "@/api/mockData/navigation.json";
+import balanceData from "@/api/mockData/balanceHistory.json";
+import cards from "@/api/mockData/cards.json";
+import weeklyActivity from "@/api/mockData/weeklyActivity.json";
+import transactionsData from "@/api/mockData/recentTransactions.json";
+import expenseStats from "@/api/mockData/expenseStats.json";
+import frequentData from "@/api/mockData/frequentTransfer.json";
 
 const handler = createNextHandler(
   main,
@@ -9,6 +15,42 @@ const handler = createNextHandler(
       return {
         status: 200,
         body: navigationData,
+      };
+    },
+    balanceHistory: async () => {
+      return {
+        status: 200,
+        body: balanceData,
+      };
+    },
+    cards: async () => {
+      return {
+        status: 200,
+        body: cards,
+      };
+    },
+    transactions: async () => {
+      return {
+        status: 200,
+        body: transactionsData,
+      };
+    },
+    weeklyActivity: async () => {
+      return {
+        status: 200,
+        body: weeklyActivity,
+      };
+    },
+    expenseStats: async () => {
+      return {
+        status: 200,
+        body: expenseStats,
+      };
+    },
+    frequentTransfer: async () => {
+      return {
+        status: 200,
+        body: frequentData,
       };
     },
   },

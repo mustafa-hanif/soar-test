@@ -1,7 +1,7 @@
-import frequentTransferData from "@/api/mockData/frequentTransfer.json";
+import { api } from "@/api";
 import { FrequestTransferClient } from "./frequenttransferclient";
 
 export const FrequentTransfer = async () => {
-  const frequentTransfer = frequentTransferData;
-  return <FrequestTransferClient frequentTransfer={frequentTransfer} />;
+  const frequentTransfer = await api.frequentTransfer();
+  return <FrequestTransferClient frequentTransfer={frequentTransfer.body} />;
 };
