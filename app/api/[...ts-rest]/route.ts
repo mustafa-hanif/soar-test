@@ -8,6 +8,8 @@ import transactionsData from "@/api/mockData/recentTransactions.json";
 import expenseStats from "@/api/mockData/expenseStats.json";
 import frequentData from "@/api/mockData/frequentTransfer.json";
 
+export const dynamic = "force-dynamic";
+
 const handler = createNextHandler(
   main,
   {
