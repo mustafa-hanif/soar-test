@@ -1,6 +1,6 @@
-import { ICreditCard } from "@/api/types";
+import { ICreditCard } from "@/data/types";
 import { CreditCard } from "./creditcard";
-import { api } from "@/api";
+import { api } from "@/data";
 
 export const CreditCards = async () => {
   const cards = await api.cards();

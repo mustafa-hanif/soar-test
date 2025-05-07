@@ -1,4 +1,4 @@
-import { IRecentTransaction } from "@/api/types";
+import { IRecentTransaction } from "@/data/types";
 import Image from "next/image";
 import { format } from "date-fns";
 

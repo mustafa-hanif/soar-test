@@ -1,4 +1,4 @@
-import { api } from "@/api";
+import { api } from "@/data";
 import { FrequestTransferClient } from "./frequenttransferclient";
 
 export const FrequentTransfer = async () => {

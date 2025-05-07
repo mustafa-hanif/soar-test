@@ -1,4 +1,4 @@
-import { api } from "@/api";
+import { api } from "@/data";
 import { WeeklyChart } from "../charts/weeklychart";
 
 export const WeeklyActivity = async () => {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ClientLayout from "./clientLayout";
-import { api } from "@/api";
+import { api } from "@/data";
 
 export const metadata: Metadata = {
   title: "Soar Finance Dashboard",

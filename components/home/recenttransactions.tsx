@@ -1,6 +1,6 @@
-import { IRecentTransaction } from "@/api/types";
+import { IRecentTransaction } from "@/data/types";
 import { Transaction } from "./transaction";
-import { api } from "@/api";
+import { api } from "@/data";
 
 export const RecentTransactions = async () => {
   const transactions = await api.transactions();

@@ -1,6 +1,6 @@
 "use client";
 
-import { IBalanceHistory } from "@/api/types";
+import { IBalanceHistory } from "@/data/types";
 import { useClient } from "@/hooks/useClient";
 import {
   Area,

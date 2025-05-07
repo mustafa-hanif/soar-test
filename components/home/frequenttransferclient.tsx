@@ -1,5 +1,5 @@
 "use client";
-import type { IFrequentTransfer } from "@/api/types";
+import type { IFrequentTransfer } from "@/data/types";
 import clsx from "clsx/lite";
 import Image from "next/image";
 import { useState } from "react";

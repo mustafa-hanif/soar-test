@@ -4,7 +4,7 @@ import { Inter, Lato } from "next/font/google";
 import "./globals.css";
 import { useSidebar } from "@/hooks/useSidebar";
 import NavLink from "@/components/global/activelink";
-import { INavItem } from "@/api/types";
+import { INavItem } from "@/data/types";
 import Image from "next/image";
 import { PageName } from "@/components/global/pagename";
 

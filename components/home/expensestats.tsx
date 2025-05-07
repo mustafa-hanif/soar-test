@@ -1,4 +1,4 @@
-import { api } from "@/api";
+import { api } from "@/data";
 import ExpensePieChart from "../charts/expensepiechart";
 
 export const ExpenseStats = async () => {

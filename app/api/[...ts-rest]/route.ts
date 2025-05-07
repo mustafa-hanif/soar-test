@@ -1,11 +1,11 @@
 // app/api/navigation/route.js
-import navigationData from "@/api/mockData/navigation";
-import balanceData from "@/api/mockData/balanceHistory";
-import cards from "@/api/mockData/cards";
-import weeklyActivity from "@/api/mockData/weeklyActivity";
-import transactionsData from "@/api/mockData/recentTransactions";
-import expenseStats from "@/api/mockData/expenseStats";
-import frequentData from "@/api/mockData/frequentTransfer";
+import navigationData from "@/data/mockData/navigation";
+import balanceData from "@/data/mockData/balanceHistory";
+import cards from "@/data/mockData/cards";
+import weeklyActivity from "@/data/mockData/weeklyActivity";
+import transactionsData from "@/data/mockData/recentTransactions";
+import expenseStats from "@/data/mockData/expenseStats";
+import frequentData from "@/data/mockData/frequentTransfer";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;

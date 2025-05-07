@@ -1,4 +1,4 @@
-import { ICreditCard } from "@/api/types";
+import { ICreditCard } from "@/data/types";
 import clsx from "clsx/lite";
 import Image from "next/image";
 

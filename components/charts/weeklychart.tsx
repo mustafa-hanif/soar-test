@@ -1,6 +1,6 @@
 "use client";
 
-import { IWeeklyActivity } from "@/api/types";
+import { IWeeklyActivity } from "@/data/types";
 import { useClient } from "@/hooks/useClient";
 import {
   Bar,

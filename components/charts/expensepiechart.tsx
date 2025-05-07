@@ -1,5 +1,5 @@
 "use client";
-import type { IExpenseStats } from "@/api/types";
+import type { IExpenseStats } from "@/data/types";
 
 import { useClient } from "@/hooks/useClient";
 import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts";
